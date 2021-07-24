@@ -16,20 +16,9 @@ public class Mine implements Listener {
                 Player player = event.getPlayer();
                 Location loc = event.getClickedBlock().getLocation();
                 Block b = loc.getBlock();
-
                 event.setCancelled(true);
                 b.setType(Material.AIR);
-                player.damage(0.1);
-                player.setFireTicks(100);
-
-                player.getWorld().createExplosion(player.getLocation().subtract(1, -1, 0), 0);
-                player.getWorld().createExplosion(player.getLocation().subtract(-1, -1, 0), 0);
-                player.getWorld().createExplosion(player.getLocation().subtract(0, -1, 1), 0);
-                player.getWorld().createExplosion(player.getLocation().subtract(0, -1, -1), 0);
-                player.getWorld().createExplosion(player.getLocation().subtract(1, -1, -1), 0);
-                player.getWorld().createExplosion(player.getLocation().subtract(-1, -1, 1), 0);
-                player.getWorld().createExplosion(player.getLocation().subtract(1, -1, 1), 0);
-                player.getWorld().createExplosion(player.getLocation().subtract(-1, -1, -1), 0);
+                loc.getWorld().createExplosion(loc,1,true,false);
 
             }
         }
